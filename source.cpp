@@ -1,5 +1,5 @@
 #include <iostream>
-#include "GraphProcessor.h"
+#include "gp/GraphProcessor.h"
 
 
 void print(std::vector<int> list)

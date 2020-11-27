@@ -3,4 +3,4 @@ project(GraphProcessor)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(AnotherOne GraphHandler.cpp GraphHandler.h Graph.cpp Graph.h GraphNode.cpp GraphNode.h Edges.h GraphProcessor.h source.cpp GraphLib.h)
+add_executable(graphProcessor gp/GraphHandler.cpp gp/GraphHandler.h gp/Graph.cpp gp/Graph.h gp/GraphNode.cpp gp/GraphNode.h gp/Edges.h gp/GraphProcessor.h source.cpp gp/GraphLib.h)

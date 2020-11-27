@@ -17,39 +17,39 @@
 					<DistClean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="graphProcessor">
+				<Option output="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio/graphProcessor.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 graphProcessor"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="graphProcessor/fast">
+				<Option output="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio/graphProcessor.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 graphProcessor/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="AnotherOne">
-				<Option output="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio/AnotherOne.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="clang"/>
-				<Compiler/>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 AnotherOne"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="AnotherOne/fast">
-				<Option output="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio/AnotherOne.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="clang"/>
-				<Compiler/>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 AnotherOne/fast"/>
 					<CompileFile command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
 					<DistClean command="nmake /NOLOGO /f C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
@@ -66,35 +66,35 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/Edges.h">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/Edges.h">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/Graph.cpp">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/Graph.cpp">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/Graph.h">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/Graph.h">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/GraphHandler.cpp">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/GraphHandler.cpp">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/GraphHandler.h">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/GraphHandler.h">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/GraphLib.h">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/GraphLib.h">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/GraphNode.cpp">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/GraphNode.cpp">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/GraphNode.h">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/GraphNode.h">
+			<Option target="graphProcessor"/>
 		</Unit>
-		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/GraphProcessor.h">
-			<Option target="AnotherOne"/>
+		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/gp/GraphProcessor.h">
+			<Option target="graphProcessor"/>
 		</Unit>
 		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/source.cpp">
-			<Option target="AnotherOne"/>
+			<Option target="graphProcessor"/>
 		</Unit>
 		<Unit filename="C:/Users/MarkN/CLionProjects/GraphProcessor/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

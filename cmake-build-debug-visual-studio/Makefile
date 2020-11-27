@@ -112,98 +112,98 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named AnotherOne
+# Target rules for targets named graphProcessor
 
 # Build rule for target.
-AnotherOne: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) AnotherOne
-.PHONY : AnotherOne
+graphProcessor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) graphProcessor
+.PHONY : graphProcessor
 
 # fast build rule for target.
-AnotherOne\fast:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\build
-.PHONY : AnotherOne\fast
+graphProcessor\fast:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\build
+.PHONY : graphProcessor\fast
 
-Graph.obj: Graph.cpp.obj
+gp\Graph.obj: gp\Graph.cpp.obj
 
-.PHONY : Graph.obj
-
-# target to build an object file
-Graph.cpp.obj:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\Graph.cpp.obj
-.PHONY : Graph.cpp.obj
-
-Graph.i: Graph.cpp.i
-
-.PHONY : Graph.i
-
-# target to preprocess a source file
-Graph.cpp.i:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\Graph.cpp.i
-.PHONY : Graph.cpp.i
-
-Graph.s: Graph.cpp.s
-
-.PHONY : Graph.s
-
-# target to generate assembly for a file
-Graph.cpp.s:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\Graph.cpp.s
-.PHONY : Graph.cpp.s
-
-GraphHandler.obj: GraphHandler.cpp.obj
-
-.PHONY : GraphHandler.obj
+.PHONY : gp\Graph.obj
 
 # target to build an object file
-GraphHandler.cpp.obj:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\GraphHandler.cpp.obj
-.PHONY : GraphHandler.cpp.obj
+gp\Graph.cpp.obj:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\Graph.cpp.obj
+.PHONY : gp\Graph.cpp.obj
 
-GraphHandler.i: GraphHandler.cpp.i
+gp\Graph.i: gp\Graph.cpp.i
 
-.PHONY : GraphHandler.i
+.PHONY : gp\Graph.i
 
 # target to preprocess a source file
-GraphHandler.cpp.i:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\GraphHandler.cpp.i
-.PHONY : GraphHandler.cpp.i
+gp\Graph.cpp.i:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\Graph.cpp.i
+.PHONY : gp\Graph.cpp.i
 
-GraphHandler.s: GraphHandler.cpp.s
+gp\Graph.s: gp\Graph.cpp.s
 
-.PHONY : GraphHandler.s
+.PHONY : gp\Graph.s
 
 # target to generate assembly for a file
-GraphHandler.cpp.s:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\GraphHandler.cpp.s
-.PHONY : GraphHandler.cpp.s
+gp\Graph.cpp.s:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\Graph.cpp.s
+.PHONY : gp\Graph.cpp.s
 
-GraphNode.obj: GraphNode.cpp.obj
+gp\GraphHandler.obj: gp\GraphHandler.cpp.obj
 
-.PHONY : GraphNode.obj
+.PHONY : gp\GraphHandler.obj
 
 # target to build an object file
-GraphNode.cpp.obj:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\GraphNode.cpp.obj
-.PHONY : GraphNode.cpp.obj
+gp\GraphHandler.cpp.obj:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\GraphHandler.cpp.obj
+.PHONY : gp\GraphHandler.cpp.obj
 
-GraphNode.i: GraphNode.cpp.i
+gp\GraphHandler.i: gp\GraphHandler.cpp.i
 
-.PHONY : GraphNode.i
+.PHONY : gp\GraphHandler.i
 
 # target to preprocess a source file
-GraphNode.cpp.i:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\GraphNode.cpp.i
-.PHONY : GraphNode.cpp.i
+gp\GraphHandler.cpp.i:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\GraphHandler.cpp.i
+.PHONY : gp\GraphHandler.cpp.i
 
-GraphNode.s: GraphNode.cpp.s
+gp\GraphHandler.s: gp\GraphHandler.cpp.s
 
-.PHONY : GraphNode.s
+.PHONY : gp\GraphHandler.s
 
 # target to generate assembly for a file
-GraphNode.cpp.s:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\GraphNode.cpp.s
-.PHONY : GraphNode.cpp.s
+gp\GraphHandler.cpp.s:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\GraphHandler.cpp.s
+.PHONY : gp\GraphHandler.cpp.s
+
+gp\GraphNode.obj: gp\GraphNode.cpp.obj
+
+.PHONY : gp\GraphNode.obj
+
+# target to build an object file
+gp\GraphNode.cpp.obj:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\GraphNode.cpp.obj
+.PHONY : gp\GraphNode.cpp.obj
+
+gp\GraphNode.i: gp\GraphNode.cpp.i
+
+.PHONY : gp\GraphNode.i
+
+# target to preprocess a source file
+gp\GraphNode.cpp.i:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\GraphNode.cpp.i
+.PHONY : gp\GraphNode.cpp.i
+
+gp\GraphNode.s: gp\GraphNode.cpp.s
+
+.PHONY : gp\GraphNode.s
+
+# target to generate assembly for a file
+gp\GraphNode.cpp.s:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\gp\GraphNode.cpp.s
+.PHONY : gp\GraphNode.cpp.s
 
 source.obj: source.cpp.obj
 
@@ -211,7 +211,7 @@ source.obj: source.cpp.obj
 
 # target to build an object file
 source.cpp.obj:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\source.cpp.obj
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\source.cpp.obj
 .PHONY : source.cpp.obj
 
 source.i: source.cpp.i
@@ -220,7 +220,7 @@ source.i: source.cpp.i
 
 # target to preprocess a source file
 source.cpp.i:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\source.cpp.i
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\source.cpp.i
 .PHONY : source.cpp.i
 
 source.s: source.cpp.s
@@ -229,7 +229,7 @@ source.s: source.cpp.s
 
 # target to generate assembly for a file
 source.cpp.s:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\source.cpp.s
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\source.cpp.s
 .PHONY : source.cpp.s
 
 # Help Target
@@ -238,18 +238,18 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... graphProcessor
 	@echo ... edit_cache
-	@echo ... AnotherOne
 	@echo ... rebuild_cache
-	@echo ... Graph.obj
-	@echo ... Graph.i
-	@echo ... Graph.s
-	@echo ... GraphHandler.obj
-	@echo ... GraphHandler.i
-	@echo ... GraphHandler.s
-	@echo ... GraphNode.obj
-	@echo ... GraphNode.i
-	@echo ... GraphNode.s
+	@echo ... gp/Graph.obj
+	@echo ... gp/Graph.i
+	@echo ... gp/Graph.s
+	@echo ... gp/GraphHandler.obj
+	@echo ... gp/GraphHandler.i
+	@echo ... gp/GraphHandler.s
+	@echo ... gp/GraphNode.obj
+	@echo ... gp/GraphNode.i
+	@echo ... gp/GraphNode.s
 	@echo ... source.obj
 	@echo ... source.i
 	@echo ... source.s

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles\AnotherOne.dir\all
+all: CMakeFiles\graphProcessor.dir\all
 
 .PHONY : all
 
@@ -64,36 +64,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles\AnotherOne.dir\clean
+clean: CMakeFiles\graphProcessor.dir\clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/AnotherOne.dir
+# Target rules for target CMakeFiles/graphProcessor.dir
 
 # All Build rule for target.
-CMakeFiles\AnotherOne.dir\all:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\depend
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\CMakeFiles --progress-num=1,2,3,4,5 "Built target AnotherOne"
-.PHONY : CMakeFiles\AnotherOne.dir\all
+CMakeFiles\graphProcessor.dir\all:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\depend
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\CMakeFiles --progress-num=1,2,3,4,5 "Built target graphProcessor"
+.PHONY : CMakeFiles\graphProcessor.dir\all
 
 # Build rule for subdir invocation for target.
-CMakeFiles\AnotherOne.dir\rule: cmake_check_build_system
+CMakeFiles\graphProcessor.dir\rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\CMakeFiles 5
-	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\all
+	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\MarkN\CLionProjects\GraphProcessor\cmake-build-debug-visual-studio\CMakeFiles 0
-.PHONY : CMakeFiles\AnotherOne.dir\rule
+.PHONY : CMakeFiles\graphProcessor.dir\rule
 
 # Convenience name for target.
-AnotherOne: CMakeFiles\AnotherOne.dir\rule
+graphProcessor: CMakeFiles\graphProcessor.dir\rule
 
-.PHONY : AnotherOne
+.PHONY : graphProcessor
 
 # clean rule for target.
-CMakeFiles\AnotherOne.dir\clean:
-	$(MAKE) -f CMakeFiles\AnotherOne.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\AnotherOne.dir\clean
-.PHONY : CMakeFiles\AnotherOne.dir\clean
+CMakeFiles\graphProcessor.dir\clean:
+	$(MAKE) -f CMakeFiles\graphProcessor.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\graphProcessor.dir\clean
+.PHONY : CMakeFiles\graphProcessor.dir\clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
