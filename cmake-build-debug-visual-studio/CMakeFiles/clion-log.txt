@@ -1,0 +1,4 @@
+"D:\Program Files\JetBrains\CLion 2020.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_C_COMPILER=D:/Program Files/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/bin/clang-cl.exe" "-DCMAKE_CXX_COMPILER=D:/Program Files/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/bin/clang-cl.exe" -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32 -G "CodeBlocks - NMake Makefiles" C:\Users\MarkN\CLionProjects\GraphProcessor
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/MarkN/CLionProjects/GraphProcessor/cmake-build-debug-visual-studio
