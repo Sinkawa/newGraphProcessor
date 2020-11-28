@@ -5,135 +5,102 @@
 #include "Graph.h"
 
 #include <utility>
+#include <climits>
 
-namespace gp
-{
+namespace gp {
 
-    Graph::Graph() {
+    Graph::Graph(bool _isOriented) : isOriented(_isOriented) {
         this->lastId = 0;
+        this->weightMatrix = nullptr;
         this->listOfNodes = nullptr;
-        this->adjacencyMatrix = nullptr;
         this->listOfEdges = nullptr;
+        this->bias = 0;
     }
 
-    std::vector<gp::GraphNode*>* Graph::getListOfNodes()
-    {
+    _NODELIST *Graph::getListOfNodes() {
         return this->listOfNodes;
     }
 
-    std::vector<weightedEdge>* Graph::getListOfEdges()
-    {
+    _WEDGELIST *Graph::getListOfEdges() {
         return this->listOfEdges;
     }
 
-    void Graph::setAdjacencyMatrix(std::vector<std::vector<int>> adjacencyMatrix)
-    {
-        if (this->adjacencyMatrix != nullptr)
-        {
-            delete this->adjacencyMatrix;
-        }
-        this->adjacencyMatrix = new std::vector<std::vector<int>>;
-        *this->adjacencyMatrix = std::move(adjacencyMatrix);
-    };
-
     //rework needed
-    void Graph::createGraphByAdjMatrix()
-    {
-        if (this->adjacencyMatrix == nullptr || this->listOfNodes->size() < this->adjacencyMatrix->size())
-        {
-            return;
-        }
-
-        for (int index = 0; index < this->adjacencyMatrix->size(); index++)
-        {
-            createListOfAdjacentNodes(index);
-        }
+    void Graph::createGraphByWeightMatrix() {
+        return;
     }
 
-    void Graph::createNodes(int amount)
-    {
-        if (this->listOfNodes == nullptr)
-        {
-            this->listOfNodes = new std::vector<GraphNode *>;
+    void Graph::createNodes(int amount) {
+        if (this->listOfNodes == nullptr) {
+            this->listOfNodes = new _NODELIST;
         }
 
-        for (int index = 0; index < amount; index++)
-        {
-            this->listOfNodes->push_back(new GraphNode(index + lastId));
+        for (int index = 0; index < amount; index++) {
+            this->listOfNodes->push_back(new _NODE(index + this->lastId));
         }
 
         this->lastId += amount;
     }
 
-    void Graph::setListOfEdges(std::vector<weightedEdge> list)
-    {
-        if (this->listOfEdges != nullptr)
-        {
+    void Graph::setListOfEdges(_WEDGELIST list) {
+        if (this->listOfEdges != nullptr) {
             delete this->listOfEdges;
         }
-        this->listOfEdges = new std::vector<weightedEdge>;
+        this->listOfEdges = new _WEDGELIST;
         *this->listOfEdges = std::move(list);
     }
 
-    void Graph::createListOfEdges()
-    {
-        for (int index = 0; index < this->adjacencyMatrix->size(); index++)
-        {
-            for (int pos = 0; pos < this->adjacencyMatrix->size(); pos++)
-            {
-                if (this->adjacencyMatrix->at(index).at(pos) == 1)
-                {
-                    this->listOfEdges->push_back(weightedEdge(index, pos, -1));
+    void Graph::createListOfEdges() {
+        for (int index = 0; index < this->weightMatrix->size(); index++) {
+            for (int pos = 0; pos < this->weightMatrix->size(); pos++) {
+                if (this->weightMatrix->at(index).at(pos) == 1) {
+                    this->listOfEdges->push_back(_WEDGE(index, pos, -1, this->isOriented));
                 }
             }
         }
     }
 
-    int Graph::getBias() const
-    {
-        return bias;
+    int Graph::getBias() const {
+        return this->bias;
     }
 
-    int Graph::createGraphByEdges()
-    {
-        if (listOfEdges == nullptr)
-        {
+    int Graph::createGraphByEdges() {
+        if (this->listOfEdges == nullptr) {
             return -1;
         }
 
-        if (this->listOfNodes == nullptr || this->listOfNodes->size() < findMaxId())
-        {
+        if (this->listOfNodes == nullptr || this->listOfNodes->size() < findMaxId()) {
             clearList();
             createNodes(findMaxId());
         }
-        bias = this->listOfNodes->at(listOfNodes->size() - 1)->getId() - findMaxId();
+        recalculateBias();
 
 
-        for (int i = 0; i < this->listOfEdges->size(); i++)
-        {
-            weightedEdge edge = this->listOfEdges->at(i);
-            this->listOfNodes->at(edge.firstId + bias)->addAdjacentNode(this->listOfNodes->at(edge.secondId + bias));
-            this->listOfNodes->at(edge.secondId + bias)->addAdjacentNode(this->listOfNodes->at(edge.firstId + bias));
+        for (auto edge : *this->listOfEdges) {
+            this->listOfNodes->at(edge.firstId + this->bias)->addAdjacentNode(
+                    this->listOfNodes->at(edge.secondId + this->bias));
+            this->listOfNodes->at(edge.secondId + this->bias)->addAdjacentNode(
+                    this->listOfNodes->at(edge.firstId + this->bias));
         }
 
-
+        createWeightMatrixFromEdges();
         return 0;
     }
 
-    void Graph::createListOfAdjacentNodes(int index)
-    {
-        std::vector<GraphNode*> list;
-        for (int pos = 0; pos < this->adjacencyMatrix->size(); pos++)
-        {
-            if (this->adjacencyMatrix->at(index).at(pos) == 1)
-            {
+    void Graph::recalculateBias() {
+        this->bias = this->listOfNodes->at(this->listOfNodes->size() - 1)->getId() - findMaxId();
+    }
+
+    void Graph::createListOfAdjacentNodes(int index) {
+        _NODELIST list;
+        for (int pos = 0; pos < this->weightMatrix->size(); pos++) {
+            if (this->weightMatrix->at(index).at(pos) != INT_MAX) {
                 this->listOfNodes->at(index)->addAdjacentNode(this->listOfNodes->at(pos));
             }
         }
     }
 
-    void Graph::clearList()
-    {
+    void Graph::clearList() {
         if (this->listOfNodes != nullptr) {
             for (int index = 0; index < this->listOfNodes->size(); index++) {
                 delete this->listOfNodes->at(index);
@@ -144,13 +111,10 @@ namespace gp
         this->lastId = 0;
     }
 
-    int Graph::findMaxId()
-    {
+    int Graph::findMaxId() {
         int result = -1;
-        for (int i = 0; i < this->listOfEdges->size(); i++)
-        {
-            if (this->listOfEdges->at(i).secondId > result)
-            {
+        for (int i = 0; i < this->listOfEdges->size(); i++) {
+            if (this->listOfEdges->at(i).secondId > result) {
                 result = this->listOfEdges->at(i).secondId;
             }
         }
@@ -162,12 +126,72 @@ namespace gp
         for (int i = 1; i < listOfEdges->size(); i++) {
             for (int j = 0; j < listOfEdges->size() - i; j++) {
                 if (listOfEdges->at(j).firstId > listOfEdges->at(j + 1).firstId) {
-                    std::swap(listOfEdges->at(j), listOfEdges->at(j+1));
+                    std::swap(listOfEdges->at(j), listOfEdges->at(j + 1));
                 } else if (listOfEdges->at(j).firstId == listOfEdges->at(j + 1).firstId &&
-                        listOfEdges->at(j).secondId > listOfEdges->at(j + 1).secondId) {
-                    std::swap(listOfEdges->at(j), listOfEdges->at(j+1));
+                           listOfEdges->at(j).secondId > listOfEdges->at(j + 1).secondId) {
+                    std::swap(listOfEdges->at(j), listOfEdges->at(j + 1));
                 }
             }
         }
+    }
+
+    _WEIGHTMATRIX *Graph::getWeightMatrix() {
+        return this->weightMatrix;
+    }
+
+    void Graph::setWeightMatrix(_WEIGHTMATRIX matrix) {
+        if (this->weightMatrix != nullptr) {
+            delete this->weightMatrix;
+        }
+        this->weightMatrix = new _WEIGHTMATRIX;
+        *this->weightMatrix = std::move(matrix);
+    }
+
+    void Graph::setListOfNodes(_NODELIST list) {
+        if (this->listOfNodes != nullptr) {
+            clearList();
+        }
+        this->listOfNodes = new _NODELIST;
+        *this->listOfNodes = std::move(list);
+        this->lastId = this->listOfNodes->at(this->listOfNodes->size() - 1)->getId();
+    }
+
+    int Graph::createWeightMatrixFromEdges() {
+        if (this->listOfEdges->empty()) {
+            return -1;
+        }
+
+        if (this->listOfNodes->empty()) {
+            createNodes(findMaxId());
+        }
+
+        if (this->weightMatrix != nullptr) {
+            delete this->weightMatrix;
+        }
+
+        this->weightMatrix = new _WEIGHTMATRIX;
+        this->weightMatrix->resize(this->listOfNodes->size());
+        for (int row = 0; row < this->weightMatrix->size(); row++) {
+            this->weightMatrix->at(row).resize(this->listOfNodes->size());
+            for (int cell = 0; cell < this->weightMatrix->at(row).size(); cell++) {
+                this->weightMatrix->at(row).at(cell) = INT_MAX;
+            }
+        }
+
+        for (auto &listOfEdge : *this->listOfEdges) {
+            this->weightMatrix->at(listOfEdge.firstId + this->bias).at(
+                    listOfEdge.secondId + this->bias) = listOfEdge.weight;
+        }
+        return 0;
+    }
+
+    Graph::~Graph() {
+        delete this->weightMatrix;
+        delete this->listOfEdges;
+        for (auto & node : *this->listOfNodes)
+        {
+            delete node;
+        }
+        delete this->listOfNodes;
     }
 }

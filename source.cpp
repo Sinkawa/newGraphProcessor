@@ -2,34 +2,78 @@
 #include "gp/GraphProcessor.h"
 
 
-void print(std::vector<int> list)
-{
-    for (int i = 0; i < list.size(); i++)
-    {
-        std::cout << i << " " << list.at(i) << std::endl;
+void print(std::vector<int> list) {
+    std::cout << "path: ";
+    for (int i = list.size() - 1; i >= 0; i--) {
+        std::cout << list.at(i) + 1 << " ";
+    }
+    std::cout << std::endl;
+}
+
+void printD(std::vector<int> list) {
+    for (int i = 0; i < list.size(); i++) {
+        std::cout << "[" << i << "] " << list.at(i) << std::endl;
     }
 }
 
-int main()
-{
-    auto* graph = new gp::Graph;
-    gp::GraphHandler graphHandler(graph);
+int main() {
+    int mode = 0;
+    std::cout << "0 - Dijkstra; 1 - Bellman-Ford; 2 - Eulerian Path; 3 - Hamiltonian Path; " << std::endl
+              << "Choose program: ";
+    std::cin >> mode;
 
-    auto* list = new std::vector<gp::weightedEdge>;
-    *list = gp::getListOfEdgesFromFile("data.txt");
-    if (list->size() == 0) {
-        return -404;
+    bool isOriented = false;
+    if (mode == 1) {
+        isOriented = true;
     }
 
+    std::string fileName[] = {
+            "dataDijkstra", "dataBellmanFord",
+            "dataEuler", "dataHamilton"
+    };
+
+    auto *graph = new gp::Graph(isOriented);
+    gp::GraphHandler graphHandler(graph);
+
+    auto *list = new _WEDGELIST;
+    *list = gp::getListOfEdgesFromFile(fileName[mode] + ".txt", isOriented);
+    if (list->empty()) {
+        return -404;
+    }
     graph->setListOfEdges(*list);
     delete list;
 
     graph->createGraphByEdges();
 
-    std::vector<int> listOfWeights = graphHandler.algDijkstra(1);
+    int id;
+    std::cout << "Enter start node: ";
+    std::cin >> id;
 
-    print(listOfWeights);
+    std::vector<int> result;
+    switch (mode) {
+        case 0:
+            result = graphHandler.algDijkstra(id);
+            break;
+        case 1:
+            int endId;
+            std::cout << "Enter end node: ";
+            std::cin >> endId;
+            result = graphHandler.algBellmanFord(id, endId);
+            break;
+        case 2:
+            result = graphHandler.EulerianPath(id);
+            break;
+        case 3:
+            result = graphHandler.HamiltonianPath(id);
+            break;
+        default:
+            return -103;
+    }
 
-    system("pause");
+    if (mode == 0) {
+        printD(result);
+    } else
+        print(result);
+
     return 0;
 }

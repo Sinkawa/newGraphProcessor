@@ -1,46 +1,44 @@
-//
-// Created by MarkN on 26.11.2020.
-//
-
 #ifndef ANOTHERONE_GRAPHNODE_H
 #define ANOTHERONE_GRAPHNODE_H
 
-
 #include <vector>
+#include "GraphDefines.h"
 
-namespace gp
-{
+namespace gp {
 
     class GraphNode {
         int id;
         bool checkStatus;
-        std::vector<GraphNode *> *listOfAdjacentNodes;
+        _NODELIST *listOfAdjacentNodes;
     public:
 
         explicit GraphNode(int id);
 
-        GraphNode(int id, std::vector<GraphNode*> listOfAdjacentNodes);
+        GraphNode(int id, _NODELIST listOfAdjacentNodes);
 
         int getId() const;
 
+        _NODE *findAdjById(int id);
+
         bool isChecked() const;
 
-        std::vector<GraphNode *> *getListOfAdjacentNodes();
+        _NODELIST *getListOfAdjacentNodes();
 
         void setCheck(bool status);
 
-        void addAdjacentNode(GraphNode *adjacentNode);
+        void addAdjacentNode(_NODE *adjacentNode);
 
-        bool removeAdjacentNode(GraphNode *adjacentNode);
+        bool removeAdjacentNode(_NODE *adjacentNode);
 
         ~GraphNode();
+
     private:
 
-        bool contains(GraphNode *adjacentNode);
+        bool contains(_NODE *adjacentNode);
 
-        bool removeNode(GraphNode *adjacentNode);
+        bool removeNode(_NODE *adjacentNode);
     };
 
 }
 
-#endif //ANOTHERONE_GRAPHNODE_H
+#endif
