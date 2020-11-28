@@ -1,3 +1,0 @@
-/home/sinkawa/Development/Projects/CLion/newGraphProcessor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/sinkawa/Development/Projects/CLion/newGraphProcessor/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/sinkawa/Development/Projects/CLion/newGraphProcessor/cmake-build-debug/CMakeFiles/graphProcessor.dir

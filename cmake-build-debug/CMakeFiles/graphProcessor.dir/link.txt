@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/graphProcessor.dir/gp/GraphHandler.cpp.o CMakeFiles/graphProcessor.dir/gp/Graph.cpp.o CMakeFiles/graphProcessor.dir/gp/GraphNode.cpp.o CMakeFiles/graphProcessor.dir/source.cpp.o CMakeFiles/graphProcessor.dir/gp/GraphLib.cpp.o  -o graphProcessor 
